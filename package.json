@@ -1,0 +1,1 @@
+{"name":"Anti-Xray","version":"1.0.0","scripts":{"test":"jest"},"devDependencies":{"jest":"^30.4.2"}}

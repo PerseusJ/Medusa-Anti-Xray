@@ -1,0 +1,104 @@
+# AntiXray Language File - English (en)
+# This file contains all user-facing messages for the AntiXray plugin.
+
+# Plugin prefix for all messages
+prefix: "&8[&bAntiXray&8] &r"
+
+# General messages
+plugin-enabled: "&aAntiXray enabled."
+plugin-disabled: "&cAntiXray disabled."
+no-permission: "&cYou do not have permission to use this command."
+unknown-subcommand: "&cUnknown subcommand. Use /antixray help for a list."
+player-not-found: "&cPlayer not found: {player}"
+only-players: "&cThis command can only be used by players."
+
+# Reload command
+reload-success: "&aConfiguration reloaded successfully."
+reload-fail: "&cFailed to reload configuration. Check console for errors."
+reload-cache-cleared: "&7Cache cleared due to configuration changes."
+
+# Status command
+status-header: "&b--- AntiXray Status ---"
+status-enabled: "&aEnabled"
+status-disabled: "&cDisabled"
+status-world-line: "&7{world}: {status} &7| Mode: {mode} &7| Cache: {cache_size}"
+status-async-line: "&7Async: {queue_size}/{max_queue} queued | {active_threads} threads"
+status-circuit-breaker: "&7Circuit breaker: {state}"
+status-cache-line: "&7L1: {l1_size} entries ({l1_hit_rate}% hit) | L2: {l2_size_mb}MB"
+
+# Mode command
+mode-changed: "&aEngine mode changed to {mode} for world: {world}"
+mode-changed-global: "&aEngine mode changed to {mode} globally."
+mode-invalid: "&cInvalid engine mode. Use 1, 2, or 3."
+mode-cache-cleared: "&7Cache cleared for affected worlds."
+
+# Cache command
+cache-cleared: "&aObfuscation cache cleared for world: {world}"
+cache-cleared-all: "&aObfuscation cache cleared for all worlds."
+
+# Toggle command
+toggle-enabled: "&aAntiXray enabled for world: {world}"
+toggle-disabled: "&cAntiXray disabled for world: {world}"
+toggle-enabled-global: "&aAntiXray enabled globally."
+toggle-disabled-global: "&cAntiXray disabled globally."
+
+# Stats command
+stats-header: "&b--- Mining Stats: {player} ---"
+stats-ore-stone-ratio: "&7Ore/Stone Ratio: &f{ratio}"
+stats-diamond-per-hour: "&7Diamonds/Hour: &f{rate}"
+stats-total-ores: "&7Total Ores: &f{ores} &7| Stone: &f{stone}"
+stats-play-style: "&7Play Style: &f{style}"
+stats-alert-level: "&7Alert Level: {level}"
+
+# Check command
+check-header: "&b--- Detailed Review: {player} ---"
+check-metric-warning: "&e{metric}: {value} &e(above warning threshold)"
+check-metric-critical: "&c{metric}: {value} &c(above critical threshold)"
+check-metric-normal: "&7{metric}: {value}"
+check-y-distribution: "&7Y-Level Distribution: &f{distribution}"
+check-biome-distribution: "&7Biome Distribution: &f{distribution}"
+
+# Timings command
+timings-header: "&b--- AntiXray Timings (last 5 minutes) ---"
+timings-obfuscation: "&7Avg per chunk: {avg_chunk}ms | Avg per section: {avg_section}ms"
+timings-95th: "&795th percentile per chunk: {p95}ms"
+timings-chunks: "&7Chunks obfuscated: {count}"
+timings-cache: "&7Cache hit rate: {rate}%"
+timings-queue: "&7Queue: {queue_size}/{max_queue} | Avg wait: {avg_wait}ms"
+timings-threads: "&7Thread pool utilization: {utilization}%"
+timings-deobfuscation: "&7Block updates: {block_updates} | Multi-block: {multi_update}"
+timings-detection: "&7Players tracked: {tracked} | Alerts: {alerts}"
+
+# Detection alerts
+alert-info: "&e[AntiXray] &e{player} &7triggered INFO alert: {metrics}"
+alert-warning: "&6[AntiXray] &6{player} &7triggered WARNING alert: {metrics}"
+alert-critical: "&c[AntiXray] &c{player} &7triggered CRITICAL alert: {metrics}"
+
+# Detection actions
+action-warn-message: "&cYour mining activity has been flagged as suspicious. Staff have been notified."
+action-kick-message: "&cYou have been kicked for suspected X-ray use."
+action-ban-message: "&cYou have been banned for suspected X-ray use."
+
+# Resource pack
+resource-pack-kick-message: "This server requires the official resource pack."
+resource-pack-declined-kick: "You must accept the server resource pack to play."
+resource-pack-timeout-kick: "Resource pack download timed out. Please rejoin."
+resource-pack-chat-blocked: "&cYou must accept the resource pack to chat."
+
+command-usage: "&eUsage: /antixray <subcommand>"
+command-available-subs: "&7Available sub-commands:"
+
+# Startup warnings
+warning-no-interception: "&cNo packet interception method available! Install Paper or ProtocolLib."
+warning-paper-antixray-conflict: "&ePaper's built-in Anti-Xray is enabled. Disable it to prevent conflicts."
+warning-orebfuscator-conflict: "&eOrebfuscator detected. Using multiple anti-xray plugins may cause conflicts."
+warning-other-antixray-plugin: "&ePotential conflict: Plugin '{plugin}' contains keywords related to Anti-Xray."
+warning-seed-leak: "&eWorld seed may be exposed. Consider randomizing feature seeds in spigot.yml."
+warning-protocolib-fallback: "&7Using ProtocolLib for packet interception (NMS mode unavailable)."
+warning-folia-experimental: "&eFolia detected. Folia support is experimental — some features may behave differently. See documentation for known limitations."
+warning-folia-limitation-async-timer: "&7Folia async timers use wall-clock time (millisecond conversion from ticks at 50ms/tick)."
+warning-folia-limitation-entity-scheduler: "&7Entity-bound tasks on Folia may fail if the entity is unloaded during scheduling."
+warning-folia-limitation-global-region: "&7Global region tasks on Folia run on the global region scheduler, not a single main thread."
+warning-folia-limitation-is-primary-thread: "&7Bukkit.isPrimaryThread() always returns false on Folia. Use FoliaSchedulerAdapter.isGlobalRegionThread() instead."
+warning-folia-limitation-player-event-scheduling: "&7Player-bound delayed tasks on Folia use EntityScheduler; tasks are cancelled if the player disconnects before execution."
+warning-folia-limitation-region-reobfuscation: "&7Deobfuscation flush tasks run on the global region scheduler; per-player packet sends may be delayed by region tick boundaries."

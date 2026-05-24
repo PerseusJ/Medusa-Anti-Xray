@@ -1,0 +1,52 @@
+name: AntiXray
+version: '${version}'
+main: com.antixray.AntiXrayPlugin
+api-version: '1.19'
+description: Server-side chunk obfuscation and statistical X-ray detection
+softdepend:
+  - ProtocolLib
+  - PlaceholderAPI
+  - Vault
+
+commands:
+  antixray:
+    description: AntiXray admin commands
+    usage: /antixray <reload|stats|check|mode|cache|toggle|status|timings>
+    permission: antixray.admin
+
+permissions:
+  antixray.bypass:
+    description: Skip obfuscation for this player — they see real blocks
+    default: false
+  antixray.admin:
+    description: Access to all admin commands
+    default: op
+    children:
+      antixray.reload: true
+      antixray.stats: true
+      antixray.check: true
+      antixray.mode: true
+      antixray.cache: true
+      antixray.toggle: true
+      antixray.notify: true
+  antixray.notify:
+    description: Receive X-ray detection alerts in chat
+    default: op
+  antixray.reload:
+    description: Reload configuration via /antixray reload
+    default: op
+  antixray.stats:
+    description: View detection statistics
+    default: op
+  antixray.check:
+    description: Manual review of player mining patterns
+    default: op
+  antixray.mode:
+    description: Change engine mode at runtime
+    default: op
+  antixray.cache:
+    description: Manage the obfuscation cache
+    default: op
+  antixray.toggle:
+    description: Enable or disable the plugin per world
+    default: op

@@ -1,0 +1,258 @@
+# ============================================
+# AntiXray Configuration
+# ============================================
+
+# Whether the plugin is enabled globally
+enabled: true
+
+# Engine mode:
+# 1 = Simple replacement (hidden -> stone/deepslate/netherrack)
+# 2 = Random fake ore injection (hidden + random fakes)
+# 3 = Layer-based obfuscation (same fake per Y-layer) [RECOMMENDED]
+engine-mode: 3
+
+# Blocks to hide from X-ray users
+hidden-blocks:
+  - coal_ore
+  - deepslate_coal_ore
+  - copper_ore
+  - deepslate_copper_ore
+  - iron_ore
+  - deepslate_iron_ore
+  - gold_ore
+  - deepslate_gold_ore
+  - diamond_ore
+  - deepslate_diamond_ore
+  - emerald_ore
+  - deepslate_emerald_ore
+  - lapis_ore
+  - deepslate_lapis_ore
+  - redstone_ore
+  - deepslate_redstone_ore
+  - nether_gold_ore
+  - nether_quartz_ore
+  - ancient_debris
+  - budding_amethyst
+  - spawner
+  - chest
+  - ender_chest
+  - trapped_chest
+
+# Replacement blocks per dimension
+replacement-blocks:
+  overworld:
+    default: stone
+    below-y: deepslate
+    deepslate-below-y: 0
+  nether: netherrack
+  end: end_stone
+
+# Maximum Y coordinate to apply obfuscation (blocks above this Y are not obfuscated)
+# Default: 64 (ores don't generate above this in most worlds)
+max-block-height: 64
+
+# Probability of placing a fake ore in Modes 2 and 3 (0.0 to 1.0)
+fake-ore-chance: 0.07
+
+# Whether lava-adjacent blocks are considered hidden (not air-exposed)
+lava-obscures: true
+
+# Whether leaves are considered transparent for air-exposure checks
+leaves-are-transparent: true
+
+# Permission to bypass obfuscation (see real blocks)
+bypass-permission: antixray.bypass
+
+# ============================================
+# Deobfuscation / Proximity Settings
+# ============================================
+proximity:
+  # Whether proximity deobfuscation is enabled
+  enabled: true
+
+  # Maximum number of obfuscated blocks tracked per player for deobfuscation
+  # Oldest entries are evicted when the limit is exceeded
+  max-revealed-per-player: 10000
+
+  # Radius in blocks within which hidden blocks are revealed
+  update-radius: 4
+
+  # Separate vertical radius (optional, defaults to update-radius)
+  update-radius-y: 4
+
+  # How often (in ticks) to check for newly-in-range blocks
+  check-interval: 5
+
+  # Movement threshold (in blocks) before triggering a proximity check
+  movement-threshold: 0.5
+
+  # Maximum deobfuscation update packets per player per tick
+  # Excess updates are deferred to the next tick
+  max-deobfuscation-updates-per-tick: 64
+
+  # Whether to use frustum culling (only reveal blocks in field of view)
+  frustum-culling: false
+
+  # Field of view for frustum culling (degrees)
+  frustum-fov: 90
+
+  # Whether to use ray-cast line-of-sight checks
+  raycast-line-of-sight: false
+
+  # Whether to re-obfuscate blocks when player leaves area
+  re-obfuscate: true
+
+  # Delay in ticks before re-obfuscating a block after player leaves area
+  re-obfuscate-delay: 200
+
+# ============================================
+# Cache Settings
+# ============================================
+cache:
+  # L1 in-memory cache settings
+  l1:
+    # Maximum number of chunks to keep in memory
+    max-size: 5000
+
+    # Time in seconds before a cached entry expires
+    expiry-seconds: 300
+
+  # L2 disk cache settings
+  l2:
+    # Whether disk caching is enabled
+    enabled: true
+
+    # Directory for disk cache (relative to plugin directory)
+    path: "cache"
+
+    # Maximum disk usage per world in MB
+    max-disk-mb: 500
+
+    # Time in seconds before a cached L2 entry expires (86400 = 24 hours)
+    expiry-seconds: 86400
+
+    # Whether to pre-load recent entries from L2 on startup
+    preload-on-startup: true
+
+# ============================================
+# Async Processing Settings
+# ============================================
+async:
+  # Whether to pre-obfuscate chunks loaded asynchronously (Paper only)
+  # When a chunk is loaded async, it is enqueued for obfuscation at MEDIUM priority
+  # so it may already be cached by the time a player needs it
+  pre-obfuscation-enabled: true
+
+  # Number of worker threads (0 = auto-detect: max(2, processors - 2))
+  pool-size: 0
+
+  # Maximum milliseconds per tick for synchronous obfuscation work
+  per-tick-budget-ms: 5
+
+  # Maximum time in ms to spend obfuscating a single chunk before timeout
+  chunk-timeout-ms: 50
+
+  # Maximum pending tasks in the queue before backpressure
+  max-queue-size: 10000
+
+# ============================================
+# Statistical Detection Settings
+# ============================================
+detection:
+  # Whether the detection module is enabled
+  enabled: true
+
+  # Minimum number of blocks a player must mine before evaluation begins
+  minimum-sample-size: 100
+
+  # Grace period in minutes for new players (no CRITICAL alerts)
+  grace-period-minutes: 30
+
+  # Alert thresholds
+  thresholds:
+    ore-to-stone-ratio:
+      warning: 0.08
+      critical: 0.15
+    diamond-per-hour:
+      warning: 10
+      critical: 20
+    straight-to-ore-ratio:
+      warning: 0.65
+      critical: 0.80
+    valuable-ore-ratio:
+      warning: 0.25
+      critical: 0.40
+
+  # Actions to take at each alert level
+  actions:
+    warning:
+      - log
+      - notify
+    critical:
+      - log
+      - notify
+      - 'command:tempban {player} 1h Suspected X-ray use'
+
+  # Notification settings
+  notifications:
+    # In-game chat notifications
+    in-game: true
+    # Console log notifications
+    console: true
+    # Webhook notifications
+    webhook:
+      enabled: false
+      url: ""
+      # Format: "plain" or "discord-embed"
+      format: "discord-embed"
+
+  # Statistics storage
+  storage:
+    # "sqlite" (default) or "mysql"
+    type: sqlite
+    # MySQL connection settings (only if type=mysql)
+    mysql:
+      host: localhost
+      port: 3306
+      database: antixray
+      username: ""
+      password: ""
+
+# ============================================
+# Resource-Pack X-Ray Countermeasures
+# ============================================
+resource-pack:
+  # Whether to force a server resource pack
+  force-pack: false
+
+  # URL to the resource pack (must be a direct download link)
+  pack-url: ""
+
+  # SHA-1 hash of the resource pack for verification
+  pack-hash: ""
+
+  # Whether to kick players who decline the resource pack
+  kick-on-decline: true
+
+  # Kick message for players who decline
+  kick-message: "This server requires the official resource pack."
+
+  # Whether to prevent joining until the pack is loaded
+  delay-join-until-loaded: true
+
+# ============================================
+# Per-World Overrides
+# ============================================
+worlds:
+  world_nether:
+    engine-mode: 2
+    hidden-blocks:
+      - nether_gold_ore
+      - nether_quartz_ore
+      - ancient_debris
+      - spawner
+      - chest
+    max-block-height: 128
+    update-radius: 3
+  world_the_end:
+    enabled: false
