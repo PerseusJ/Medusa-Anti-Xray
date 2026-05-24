@@ -1,6 +1,6 @@
 # Medusa-Anti-Xray
 
-# Anti-Xray v1.0.0 — Official Release Notes
+# Anti-Xray v1.0.0 - Official Release Notes
 ## Advanced Server-Side Chunk Obfuscation & Behavioral Anti-Cheat
 
 Anti-Xray is a highly optimized, feature-rich Minecraft server plugin designed to secure your server's economy. It combines real-time packet-level chunk obfuscation with statistical behavior analysis to prevent both client-side X-ray mods and texture packs without degrading server performance.
