@@ -65,7 +65,7 @@ class I18nTest {
         // Check that a message is successfully fetched from the English file when no locale is provided
         String prefix = i18n.getMessage("prefix", (Player) null);
         assertNotNull(prefix);
-        assertTrue(prefix.contains("AntiXray"));
+        assertTrue(prefix.contains("Medusa-Anti-Xray"));
 
         // Try getting a nonexistent key, it should fallback to returning the key itself
         String nonexistent = i18n.getMessage("nonexistent-key-xyz", (Player) null);

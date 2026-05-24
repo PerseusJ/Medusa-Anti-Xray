@@ -1,4 +1,4 @@
-name: AntiXray
+name: Medusa-Anti-Xray
 version: '${version}'
 main: com.antixray.AntiXrayPlugin
 api-version: '1.19'

@@ -59,13 +59,30 @@ tasks.test {
 }
 
 tasks.shadowJar {
-    archiveBaseName.set("AntiXray")
+    archiveBaseName.set("Medusa-Anti-Xray")
     archiveVersion.set(version.toString())
     archiveClassifier.set("")
 
     relocate("com.github.benmanes.caffeine", "com.antixray.lib.caffeine")
     relocate("com.zaxxer.hikari", "com.antixray.lib.hikari")
     relocate("org.sqlite", "com.antixray.lib.sqlite")
+
+    // Exclude unnecessary SQLite native libraries (relocated package path)
+    exclude("**/sqlite/native/Linux-Android/**")
+    exclude("**/sqlite/native/FreeBSD/**")
+    exclude("**/sqlite/native/Linux/ppc64/**")
+    exclude("**/sqlite/native/Linux/x86/**")
+    exclude("**/sqlite/native/Linux/arm/**")
+    exclude("**/sqlite/native/Linux/armv6/**")
+    exclude("**/sqlite/native/Linux/armv7/**")
+    exclude("**/sqlite/native/Linux-Musl/x86/**")
+    exclude("**/sqlite/native/Windows/x86/**")
+    exclude("**/sqlite/native/Windows/armv7/**")
+    exclude("**/sqlite/native/Windows/aarch64/**")
+    
+    // Also clean up any Maven pom/metadata files
+    exclude("META-INF/maven/**")
+    exclude("META-INF/dependency-descriptor.properties")
 
     minimize()
 }

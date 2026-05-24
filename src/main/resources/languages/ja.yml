@@ -1,8 +1,8 @@
-# AntiXray Language File - Japanese (ja)
-prefix: "&8[&bAntiXray&8] &r"
+# Medusa-Anti-Xray Language File - Japanese (ja)
+prefix: "&8[&bMedusa-Anti-Xray&8] &r"
 
-plugin-enabled: "&aAntiXray が有効になりました。"
-plugin-disabled: "&cAntiXray が無効になりました。"
+plugin-enabled: "&aMedusa-Anti-Xray が有効になりました。"
+plugin-disabled: "&cMedusa-Anti-Xray が無効になりました。"
 no-permission: "&cこのコマンドを実行する権限がありません。"
 unknown-subcommand: "&c不明なサブコマンドです。一覧を表示するには /antixray help を使用してください。"
 player-not-found: "&cプレイヤーが見つかりません: {player}"
@@ -12,7 +12,7 @@ reload-success: "&a設定が正常に再読み込みされました。"
 reload-fail: "&c設定の再読み込みに失敗しました。詳細はコンソールを確認してください。"
 reload-cache-cleared: "&7設定の変更により、キャッシュがクリアされました。"
 
-status-header: "&b--- AntiXray ステータス ---"
+status-header: "&b--- Medusa-Anti-Xray ステータス ---"
 status-enabled: "&a有効"
 status-disabled: "&c無効"
 status-world-line: "&7{world}: {status} &7| モード: {mode} &7| キャッシュ: {cache_size}"
@@ -28,10 +28,10 @@ mode-cache-cleared: "&7影響を受けるワールドのキャッシュがクリ
 cache-cleared: "&aワールド {world} の難読化キャッシュをクリアしました。"
 cache-cleared-all: "&aすべてのワールドの難読化キャッシュをクリアしました。"
 
-toggle-enabled: "&aワールド {world} で AntiXray が有効になりました。"
-toggle-disabled: "&cワールド {world} で AntiXray が無効になりました。"
-toggle-enabled-global: "&aAntiXray がグローバルに有効になりました。"
-toggle-disabled-global: "&cAntiXray がグローバルに無効になりました。"
+toggle-enabled: "&aワールド {world} で Medusa-Anti-Xray が有効になりました。"
+toggle-disabled: "&cワールド {world} で Medusa-Anti-Xray が無効になりました。"
+toggle-enabled-global: "&aMedusa-Anti-Xray がグローバルに有効になりました。"
+toggle-disabled-global: "&cMedusa-Anti-Xray がグローバルに無効になりました。"
 
 stats-header: "&b--- 採掘統計: {player} ---"
 stats-ore-stone-ratio: "&7鉱石/石の比率: &f{ratio}"
@@ -47,7 +47,7 @@ check-metric-normal: "&7{metric}: {value}"
 check-y-distribution: "&7Y座標分布: &f{distribution}"
 check-biome-distribution: "&7バイオーム分布: &f{distribution}"
 
-timings-header: "&b--- AntiXray タイミング (直近5分間) ---"
+timings-header: "&b--- Medusa-Anti-Xray タイミング (直近5分間) ---"
 timings-obfuscation: "&7チャンク平均: {avg_chunk}ms | セクション平均: {avg_section}ms"
 timings-95th: "&7チャンク95パーセンタイル: {p95}ms"
 timings-chunks: "&7難読化チャンク数: {count}"
@@ -57,9 +57,9 @@ timings-threads: "&7スレッドプール使用率: {utilization}%"
 timings-deobfuscation: "&7ブロック更新数: {block_updates} | マルチブロック更新数: {multi_update}"
 timings-detection: "&7追跡プレイヤー数: {tracked} | アラート数: {alerts}"
 
-alert-info: "&e[AntiXray] &e{player} &7が INFO アラートをトリガーしました: {metrics}"
-alert-warning: "&6[AntiXray] &6{player} &7が WARNING アラートをトリガーしました: {metrics}"
-alert-critical: "&c[AntiXray] &c{player} &7が CRITICAL アラートをトリガーしました: {metrics}"
+alert-info: "&e[Medusa-Anti-Xray] &e{player} &7が INFO アラートをトリガーしました: {metrics}"
+alert-warning: "&6[Medusa-Anti-Xray] &6{player} &7が WARNING アラートをトリガーしました: {metrics}"
+alert-critical: "&c[Medusa-Anti-Xray] &c{player} &7が CRITICAL アラートをトリガーしました: {metrics}"
 
 action-warn-message: "&cあなたの採掘活動が不審であると判定されました。管理者に通知されました。"
 action-kick-message: "&cX線使用の疑いがあるためキックされました。"

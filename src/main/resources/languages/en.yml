@@ -1,12 +1,12 @@
-# AntiXray Language File - English (en)
-# This file contains all user-facing messages for the AntiXray plugin.
+# Medusa-Anti-Xray Language File - English (en)
+# This file contains all user-facing messages for the Medusa-Anti-Xray plugin.
 
 # Plugin prefix for all messages
-prefix: "&8[&bAntiXray&8] &r"
+prefix: "&8[&bMedusa-Anti-Xray&8] &r"
 
 # General messages
-plugin-enabled: "&aAntiXray enabled."
-plugin-disabled: "&cAntiXray disabled."
+plugin-enabled: "&aMedusa-Anti-Xray enabled."
+plugin-disabled: "&cMedusa-Anti-Xray disabled."
 no-permission: "&cYou do not have permission to use this command."
 unknown-subcommand: "&cUnknown subcommand. Use /antixray help for a list."
 player-not-found: "&cPlayer not found: {player}"
@@ -18,7 +18,7 @@ reload-fail: "&cFailed to reload configuration. Check console for errors."
 reload-cache-cleared: "&7Cache cleared due to configuration changes."
 
 # Status command
-status-header: "&b--- AntiXray Status ---"
+status-header: "&b--- Medusa-Anti-Xray Status ---"
 status-enabled: "&aEnabled"
 status-disabled: "&cDisabled"
 status-world-line: "&7{world}: {status} &7| Mode: {mode} &7| Cache: {cache_size}"
@@ -37,10 +37,10 @@ cache-cleared: "&aObfuscation cache cleared for world: {world}"
 cache-cleared-all: "&aObfuscation cache cleared for all worlds."
 
 # Toggle command
-toggle-enabled: "&aAntiXray enabled for world: {world}"
-toggle-disabled: "&cAntiXray disabled for world: {world}"
-toggle-enabled-global: "&aAntiXray enabled globally."
-toggle-disabled-global: "&cAntiXray disabled globally."
+toggle-enabled: "&aMedusa-Anti-Xray enabled for world: {world}"
+toggle-disabled: "&cMedusa-Anti-Xray disabled for world: {world}"
+toggle-enabled-global: "&aMedusa-Anti-Xray enabled globally."
+toggle-disabled-global: "&cMedusa-Anti-Xray disabled globally."
 
 # Stats command
 stats-header: "&b--- Mining Stats: {player} ---"
@@ -59,7 +59,7 @@ check-y-distribution: "&7Y-Level Distribution: &f{distribution}"
 check-biome-distribution: "&7Biome Distribution: &f{distribution}"
 
 # Timings command
-timings-header: "&b--- AntiXray Timings (last 5 minutes) ---"
+timings-header: "&b--- Medusa-Anti-Xray Timings (last 5 minutes) ---"
 timings-obfuscation: "&7Avg per chunk: {avg_chunk}ms | Avg per section: {avg_section}ms"
 timings-95th: "&795th percentile per chunk: {p95}ms"
 timings-chunks: "&7Chunks obfuscated: {count}"
@@ -70,9 +70,9 @@ timings-deobfuscation: "&7Block updates: {block_updates} | Multi-block: {multi_u
 timings-detection: "&7Players tracked: {tracked} | Alerts: {alerts}"
 
 # Detection alerts
-alert-info: "&e[AntiXray] &e{player} &7triggered INFO alert: {metrics}"
-alert-warning: "&6[AntiXray] &6{player} &7triggered WARNING alert: {metrics}"
-alert-critical: "&c[AntiXray] &c{player} &7triggered CRITICAL alert: {metrics}"
+alert-info: "&e[Medusa-Anti-Xray] &e{player} &7triggered INFO alert: {metrics}"
+alert-warning: "&6[Medusa-Anti-Xray] &6{player} &7triggered WARNING alert: {metrics}"
+alert-critical: "&c[Medusa-Anti-Xray] &c{player} &7triggered CRITICAL alert: {metrics}"
 
 # Detection actions
 action-warn-message: "&cYour mining activity has been flagged as suspicious. Staff have been notified."

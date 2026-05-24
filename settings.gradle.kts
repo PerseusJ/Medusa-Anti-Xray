@@ -5,4 +5,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "antixray"
+rootProject.name = "medusa-anti-xray"
